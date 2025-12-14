@@ -1,0 +1,19 @@
+# Ignore all .cursor files
+*.cursor
+
+# Ignore all .claude files
+*.claude
+
+# Ignore all .md files
+*.md
+
+# But keep README.md files
+!README.md
+!**/README.md
+
+# Ignore specific markdown files
+COMPETITIVE_ADVANTAGES.md
+
+# Ignore scripts directory
+scripts/
+

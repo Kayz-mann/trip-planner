@@ -1,0 +1,125 @@
+{
+  "trips": [
+    {
+      "id": "1",
+      "name": "Bahamas Family Trip",
+      "destination": "Paris",
+      "start_date": "19th April 2024",
+      "end_date": "24th April 2024",
+      "duration": 5,
+      "travel_style": "Family",
+      "description": "A wonderful family vacation to Paris with visits to the Eiffel Tower, Louvre Museum, and Disneyland Paris.",
+      "created_at": "2024-04-01T10:00:00Z",
+      "updated_at": "2024-04-01T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": "Solo Adventure in Tokyo",
+      "destination": "Tokyo",
+      "start_date": "1st May 2024",
+      "end_date": "8th May 2024",
+      "duration": 7,
+      "travel_style": "Solo",
+      "description": "Exploring the vibrant streets of Tokyo, trying authentic ramen, visiting temples, and experiencing the unique culture.",
+      "created_at": "2024-04-15T10:00:00Z",
+      "updated_at": "2024-04-15T10:00:00Z"
+    },
+    {
+      "id": "3",
+      "name": "Romantic Getaway",
+      "destination": "Bali",
+      "start_date": "15th June 2024",
+      "end_date": "22nd June 2024",
+      "duration": 7,
+      "travel_style": "Couple",
+      "description": "A romantic escape to Bali with beautiful beaches, luxury resorts, and stunning sunsets.",
+      "created_at": "2024-05-01T10:00:00Z",
+      "updated_at": "2024-05-01T10:00:00Z"
+    },
+    {
+      "id": "4",
+      "name": "Group Adventure to Dubai",
+      "destination": "Dubai",
+      "start_date": "10th July 2024",
+      "end_date": "17th July 2024",
+      "duration": 7,
+      "travel_style": "Group",
+      "description": "An exciting group trip to Dubai featuring the Burj Khalifa, desert safaris, and luxury shopping experiences.",
+      "created_at": "2024-05-20T10:00:00Z",
+      "updated_at": "2024-05-20T10:00:00Z"
+    },
+    {
+      "id": "5",
+      "name": "European Family Tour",
+      "destination": "London",
+      "start_date": "5th August 2024",
+      "end_date": "15th August 2024",
+      "duration": 10,
+      "travel_style": "Family",
+      "description": "A comprehensive family tour of London including Buckingham Palace, British Museum, and Harry Potter Studio Tour.",
+      "created_at": "2024-06-01T10:00:00Z",
+      "updated_at": "2024-06-01T10:00:00Z"
+    },
+    {
+      "id": "6",
+      "name": "Solo Backpacking Trip",
+      "destination": "Bangkok",
+      "start_date": "20th September 2024",
+      "end_date": "27th September 2024",
+      "duration": 7,
+      "travel_style": "Solo",
+      "description": "An adventurous solo backpacking experience through Bangkok's markets, temples, and street food scene.",
+      "created_at": "2024-07-01T10:00:00Z",
+      "updated_at": "2024-07-01T10:00:00Z"
+    },
+    {
+      "id": "7",
+      "name": "Honeymoon in Maldives",
+      "destination": "Maldives",
+      "start_date": "1st October 2024",
+      "end_date": "8th October 2024",
+      "duration": 7,
+      "travel_style": "Couple",
+      "description": "A dreamy honeymoon in the Maldives with overwater bungalows, crystal clear waters, and world-class diving.",
+      "created_at": "2024-08-01T10:00:00Z",
+      "updated_at": "2024-08-01T10:00:00Z"
+    },
+    {
+      "id": "8",
+      "name": "Friends Reunion in Barcelona",
+      "destination": "Barcelona",
+      "start_date": "12th November 2024",
+      "end_date": "19th November 2024",
+      "duration": 7,
+      "travel_style": "Group",
+      "description": "A fun-filled reunion trip with friends exploring Barcelona's architecture, beaches, and vibrant nightlife.",
+      "created_at": "2024-09-01T10:00:00Z",
+      "updated_at": "2024-09-01T10:00:00Z"
+    },
+    {
+      "id": "9",
+      "name": "Cultural Immersion in India",
+      "destination": "New Delhi",
+      "start_date": "1st December 2024",
+      "end_date": "10th December 2024",
+      "duration": 9,
+      "travel_style": "Family",
+      "description": "A cultural journey through India visiting historical monuments, experiencing local cuisine, and traditional festivals.",
+      "created_at": "2024-10-01T10:00:00Z",
+      "updated_at": "2024-10-01T10:00:00Z"
+    },
+    {
+      "id": "10",
+      "name": "Solo Digital Nomad Experience",
+      "destination": "Lisbon",
+      "start_date": "15th January 2025",
+      "end_date": "22nd January 2025",
+      "duration": 7,
+      "travel_style": "Solo",
+      "description": "Working remotely while exploring Lisbon's charming streets, historic neighborhoods, and excellent coffee culture.",
+      "created_at": "2024-11-01T10:00:00Z",
+      "updated_at": "2024-11-01T10:00:00Z"
+    }
+  ]
+}
+
