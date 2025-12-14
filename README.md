@@ -10,11 +10,11 @@ TripPlanner lets users create, view, and manage their travel plans. You start by
 
 ### App Screenshots
 
-![Home Screen](TripPlanner/screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202025-12-14%20at%2014.30.43.png)
+<img src="TripPlanner/screenshots/Simulator Screenshot - iPhone 17 Pro - 2025-12-14 at 14.30.43.png" alt="Home Screen" width="300">
 
-![Trip Detail](TripPlanner/screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202025-12-14%20at%2014.30.54.png)
+<img src="TripPlanner/screenshots/Simulator Screenshot - iPhone 17 Pro - 2025-12-14 at 14.30.54.png" alt="Trip Detail" width="300">
 
-![Trip Planning](TripPlanner/screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202025-12-14%20at%2014.31.04.png)
+<img src="TripPlanner/screenshots/Simulator Screenshot - iPhone 17 Pro - 2025-12-14 at 14.31.04.png" alt="Trip Planning" width="300">
 
 ## The Journey
 

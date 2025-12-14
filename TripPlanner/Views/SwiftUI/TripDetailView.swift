@@ -692,22 +692,24 @@ struct FlightCardView: View {
     var body: some View {
                     VStack(alignment: .leading, spacing: 16) {
             // Airline and Flight Number
-                        HStack {
+            HStack(spacing: 12) {
                 Image("american-airlines")
-                                .resizable()
-                                .scaledToFit()
+                    .resizable()
+                    .scaledToFit()
                     .frame(width: 20, height: 20)
                 
-                Text("American Airlines")
-                    .font(.appFont(style: .b4Medium))
-                    .foregroundColor(.primaryText)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("American Airlines")
+                        .font(.appFont(style: .b4Medium))
+                        .foregroundColor(.primaryText)
+                    
+                    Text(flight.flightNumber)
+                        .font(.appFont(style: .b4Medium))
+                        .foregroundColor(.primaryText)
+                }
                 
-                Text(flight.flightNumber)
-                    .font(.appFont(style: .b4Medium))
-                    .foregroundColor(.primaryText)
-
-                            Spacer()
-                        }
+                Spacer()
+            }
 
             // Flight Route Details
                         HStack(spacing: 16) {
@@ -740,16 +742,17 @@ struct FlightCardView: View {
                             .foregroundColor(.tertiaryText)
 
                         // Duration with length icon
-                                HStack(spacing: 4) {
-                                    Image("length-icon")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 12, height: 12)
+                        HStack(spacing: 4) {
+                            Image("length-icon")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 12, height: 12)
                                 .foregroundColor(.tertiaryText)
 
                             Text(flight.duration)
-                                        .font(.appFont(style: .b4Medium))
+                                .font(.system(size: 11, weight: .medium))
                                 .foregroundColor(.tertiaryText)
+                                .fixedSize(horizontal: true, vertical: false)
                         }
                         
                         // Arrival airplane icon (landing)
@@ -785,7 +788,7 @@ struct FlightCardView: View {
                             .font(.appFont(style: .b4Medium))
                             .foregroundColor(.primaryText)
                             .fontWeight(.semibold)
-                        
+
                                 Text("Direct")
                                     .font(.appFont(style: .b4Medium))
                             .foregroundColor(.tertiaryText)
@@ -842,7 +845,7 @@ struct FlightCardView: View {
                                     .foregroundColor(.primaryBlue)
                             }
                 
-                Spacer()
+                            Spacer()
                         }
 
             // Divider
@@ -852,7 +855,7 @@ struct FlightCardView: View {
             // Price
                         HStack {
                 Text(flight.price)
-                    .font(.appFont(style: .b3SemiBold))
+                                .font(.appFont(style: .b3SemiBold))
                     .foregroundColor(.primaryText)
                 Spacer()
             }
@@ -860,22 +863,22 @@ struct FlightCardView: View {
             // Remove Button - Centered and wide
             Button(action: onRemove) {
                 HStack(spacing: 4) {
-                    Text("Remove")
+                                    Text("Remove")
                                 .font(.appFont(style: .b4Medium))
-                    Image(systemName: "xmark")
-                        .font(.system(size: 12))
-                }
-                .foregroundColor(.red)
+                                    Image(systemName: "xmark")
+                                        .font(.system(size: 12))
+                                }
+                                .foregroundColor(.red)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 12)
-                .background(Color.removeBackground)
+                                .background(Color.removeBackground)
                 .cornerRadius(8)
-            }
-        }
-        .padding(20)
+                        }
+                    }
+                    .padding(20)
         .frame(maxWidth: .infinity)
         .background(Color.appWhite)
-        .cornerRadius(12)
+                    .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 2)
     }
 }
@@ -883,61 +886,14 @@ struct FlightCardView: View {
 struct HotelCardView: View {
     let hotel: Hotel
     let onRemove: () -> Void
-    @State private var currentImageIndex = 0
+    
+    // Local image array for hotels
+    private let hotelImages = ["hotels-image", "hotel-image", "base-hotel-image", "bahamas-family-trip", "family-trip"]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             // Image Carousel
-            ZStack(alignment: .bottomTrailing) {
-                CachedAsyncImage(url: hotel.imageUrls.isEmpty ? nil : hotel.imageUrls[currentImageIndex].flatMap { URL(string: $0) }) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 200)
-                        .clipped()
-                } placeholder: {
-                    Image("hotels-image")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 200)
-                        .clipped()
-                }
-                
-                // Navigation arrows (if multiple images)
-                if hotel.imageUrls.count > 1 {
-                    HStack {
-                        Button(action: {
-                            withAnimation {
-                                currentImageIndex = (currentImageIndex - 1 + hotel.imageUrls.count) % hotel.imageUrls.count
-                            }
-                        }) {
-                            Image(systemName: "chevron.left")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(.white)
-                                .padding(8)
-                                .background(Color.black.opacity(0.5))
-                                .clipShape(Circle())
-                        }
-
-                            Spacer()
-
-                        Button(action: {
-                            withAnimation {
-                                currentImageIndex = (currentImageIndex + 1) % hotel.imageUrls.count
-                            }
-                        }) {
-                            Image(systemName: "chevron.right")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(.white)
-                                .padding(8)
-                                .background(Color.black.opacity(0.5))
-                                .clipShape(Circle())
-                        }
-                    }
-                    .padding(12)
-                }
-            }
-            .cornerRadius(12)
+            ImageCarouselView(imageNames: hotelImages)
             
             // Hotel Name
             Text(hotel.name)
@@ -997,7 +953,7 @@ struct HotelCardView: View {
                         Text("In: \(hotel.checkInDate)")
                             .font(.appFont(style: .b4Medium))
                     }
-                    .foregroundColor(.tertiaryText)
+                .foregroundColor(.tertiaryText)
                 }
                 
                 if !hotel.checkOutDate.isEmpty {
@@ -1027,7 +983,7 @@ struct HotelCardView: View {
                 
                 Button(action: {}) {
                     Text("Edit details")
-                        .font(.appFont(style: .b4Medium))
+                            .font(.appFont(style: .b4Medium))
                         .foregroundColor(.primaryBlue)
                 }
             }
@@ -1044,11 +1000,11 @@ struct HotelCardView: View {
             Button(action: onRemove) {
                 HStack(spacing: 4) {
                     Text("Remove")
-                        .font(.appFont(style: .b4Medium))
+                            .font(.appFont(style: .b4Medium))
                     Image(systemName: "xmark")
                         .font(.system(size: 12))
                 }
-                .foregroundColor(.red)
+                            .foregroundColor(.red)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 12)
                 .background(Color.removeBackground)
@@ -1064,68 +1020,21 @@ struct HotelCardView: View {
 struct ActivityCardView: View {
     let activity: Activity
     let onRemove: () -> Void
-    @State private var currentImageIndex = 0
-
+    
+    // Local image array for activities
+    private let activityImages = ["activities-image", "plant-image", "bahamas-family-trip", "family-trip", "plan-a-trip"]
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             // Image Carousel
-            ZStack(alignment: .bottomTrailing) {
-                CachedAsyncImage(url: activity.imageUrls.isEmpty ? nil : activity.imageUrls[currentImageIndex].flatMap { URL(string: $0) }) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 200)
-                        .clipped()
-                } placeholder: {
-                    Image("activities-image")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 200)
-                        .clipped()
-                }
-                
-                // Navigation arrows (if multiple images)
-                if activity.imageUrls.count > 1 {
-        HStack {
-                        Button(action: {
-                            withAnimation {
-                                currentImageIndex = (currentImageIndex - 1 + activity.imageUrls.count) % activity.imageUrls.count
-                            }
-                        }) {
-                            Image(systemName: "chevron.left")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(.white)
-                                .padding(8)
-                                .background(Color.black.opacity(0.5))
-                                .clipShape(Circle())
-                        }
-
-            Spacer()
-
-                        Button(action: {
-                            withAnimation {
-                                currentImageIndex = (currentImageIndex + 1) % activity.imageUrls.count
-                            }
-                        }) {
-                            Image(systemName: "chevron.right")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(.white)
-                                .padding(8)
-                                .background(Color.black.opacity(0.5))
-                                .clipShape(Circle())
-                        }
-                    }
-                    .padding(12)
-                }
-            }
-            .cornerRadius(12)
+            ImageCarouselView(imageNames: activityImages)
             
             // Activity Name
             Text(activity.name)
                 .font(.appFont(style: .b3SemiBold))
                 .foregroundColor(.primaryText)
-            
-            // Description
+
+                // Description
             if !activity.description.isEmpty {
                 Text(activity.description)
                     .font(.appFont(style: .b4Medium))
@@ -1215,7 +1124,7 @@ struct ActivityCardView: View {
                 Spacer()
                 Text(activity.price)
                     .font(.appFont(style: .b4Medium))
-                    .foregroundColor(.primaryText)
+            .foregroundColor(.primaryText)
             }
             
             // Remove Button - Centered and wide

@@ -31,7 +31,6 @@
 			membershipExceptions = (
 				Info.plist,
 				README.md,
-				"scripts/README-SCREENSHOTS.md",
 			);
 			target = 0D5D68F82EECCD250046777D /* TripPlanner */;
 		};
