@@ -10,11 +10,11 @@ TripPlanner lets users create, view, and manage their travel plans. You start by
 
 ### App Screenshots
 
-![Home Screen](screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202025-12-14%20at%2014.30.43.png)
+![Home Screen](./screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202025-12-14%20at%2014.30.43.png)
 
-![Trip Detail](screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202025-12-14%20at%2014.30.54.png)
+![Trip Detail](./screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202025-12-14%20at%2014.30.54.png)
 
-![Trip Planning](screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202025-12-14%20at%2014.31.04.png)
+![Trip Planning](./screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%202025-12-14%20at%2014.31.04.png)
 
 ## The Journey
 
@@ -25,6 +25,7 @@ The app began as a single-screen experience focused on the core trip creation fl
 ### Building the Core Flow
 
 The first challenge was getting the trip creation flow right. Users need to:
+
 1. Select a destination city from a list
 2. Pick start and end dates using a custom calendar
 3. Fill in trip details like name, travel style, and description
@@ -43,6 +44,7 @@ The current setup uses Beeceptor at `https://trip-planner.free.beeceptor.com/api
 ### Trip Detail View
 
 The trip detail screen became the most complex part of the app. It needed to show:
+
 - A header with back navigation
 - Trip overview card with image, dates, and action buttons
 - Three planning cards for Activities, Hotels, and Flights
@@ -105,6 +107,7 @@ I removed the bottom tab navigation to keep the app focused on a single main scr
 ### Custom Components
 
 Several custom components were built to match the design:
+
 - CachedAsyncImage for optimized image loading
 - DateRangePickerView with custom calendar
 - CityPickerView with country/city list
@@ -170,18 +173,23 @@ The mock data is stored as constants in TripDetailView and provides realistic ex
 ## Technology Coverage
 
 ### SwiftUI
+
 The main app is built entirely with SwiftUI, demonstrating modern declarative UI patterns:
+
 - Complex animations and transitions
 - State management with @State, @StateObject, @Binding
 - Navigation with NavigationStack
 - Custom reusable components
 
 ### UIKit
+
 The project includes UIKit view controllers in `Views/UIKit/` that demonstrate programmatic UIKit patterns:
+
 - `CreateTripViewController` - Programmatic form with Auto Layout
 - `TripListViewController` - UITableView with Combine bindings
 
 These UIKit implementations showcase:
+
 - Programmatic UI construction (no storyboards)
 - Auto Layout constraints
 - Combine for reactive programming
@@ -209,6 +217,7 @@ If you want to use the local mock API server instead of Beeceptor:
 ## Current API Endpoint
 
 The app is currently configured to use Beeceptor:
+
 - Base URL: `https://trip-planner.free.beeceptor.com/api/trips`
 - Available operations: GET (fetch all trips), POST (create trip)
 - Limited to two rules on free tier
@@ -216,6 +225,7 @@ The app is currently configured to use Beeceptor:
 ### What's Not Implemented
 
 Because of the free tier limitation, the following operations are not implemented in the app:
+
 - `GET /api/trips/:id` - Fetch single trip by ID (not used)
 - `PUT /api/trips/:id` - Update trip (code exists but not used in SwiftUI views)
 - `PATCH /api/trips/:id` - Partially update trip (code exists but not used)
@@ -230,4 +240,3 @@ Instead, all trip data manipulation beyond creating and viewing is handled throu
 - Integrate real flight, hotel, and activity booking APIs
 - Add trip sharing and collaboration features
 - Implement offline support with local data persistence
-

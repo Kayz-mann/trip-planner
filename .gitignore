@@ -17,3 +17,7 @@ COMPETITIVE_ADVANTAGES.md
 # Ignore scripts directory
 scripts/
 
+# Ensure screenshots are tracked
+!TripPlanner/screenshots/
+!TripPlanner/screenshots/**/*
+
